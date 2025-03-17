@@ -144,43 +144,37 @@ a:visited {
         background-image: none;
     }
 
-    /* Step 17: Adjust nav spacing */
+    /* Step 17: Make the nav links a row and space them out */
     .nav_links {
         flex-direction: row;
-        justify-content: space-around !important;
-        justify-items: space-around !important;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    /* Change the nav width to 100 too so that it properly spaces out */
+    nav {
         width: 100%;
     }
 
-    /* Step 17: Align pricing cards to bottom */
+    /* Step 18: Make pricing cards set at the bottom */
     .pricing {
         align-items: flex-end;
         flex-wrap: nowrap;
     }
 
-    /* Step 18: Card print styles */
+    /* Step 19: set border and basis and shtink to make sure it fits without overlap */
     .card {
         border: 2px solid #45ADDD;
-        flex-basis: 325px !important;
+        flex-basis: 325px;
+        flex-shrink: 1;
     }
 
-    /* Step 19: Hide gallery */
-    .gallery {
-        display: none !important;
+    /* Step 19: Make sure there is no gallery or title */
+    .gallery, #gallery{
+        display: none;
     }
 
-    /* Step 20: Add thumbs up emoji */
-    .card ul li:first-child::before {
-        content: "👍 ";
-        font-style: normal;
-    }
-
-    /* Bonus print adjustments */
-    .skip, button {
-        display: none !important;
-    }
-
-    header {
-        position: static !important;
+    /* Step 20: Add thumbs up by adding content to HTML */
+    .card li:nth-child(2)::after {
+        content: "👍";
     }
 }
