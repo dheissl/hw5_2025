@@ -1,4 +1,5 @@
 /* Step 1 Animate the logo with keyframes.  (Here is a keyframes reference.) It should start at a width of 25px and grow to 475px.  It should also start with an opacity of 0 and end with an opacity of 1. The animation should take 5 seconds and only happen when the page is loaded. */
+/*Setup animation*/
 @keyframes logoAnimation {
     from {
         width: 25px;
@@ -9,14 +10,16 @@
         opacity: 1;
     }
 }
-
+/*Put animation on logo*/
 #logo {
     animation: logoAnimation 5s ease-in-out;
 }
 
 /* Step 2 Edit the body element to use the Poppins font (using Google fonts) with serif as a backup.  It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1.*/
 body {
+    /* Add fonts */
     font-family: 'Poppins', serif;
+    /* Add image and background color */
     background-image: url('../images/concrete_seamless.png');
     background-color: #f1f1f1;
 }
@@ -24,44 +27,48 @@ body {
 /* Step 3: Make header use flex display */
 header {
     display: flex;
+    /* Match example with column for mobile */
     flex-direction: column;
     align-items: center;
 }
   
-/* Step 4: Make nav_links use flex display (without modifying list items/links) */
+/* Step 4: Make nav_links use flex display */
 .nav_links {
     display: flex;
+    /* Match example */
     flex-direction: column;
     align-items: center;
 }
   
-/* Step 5: Keep link color consistent after being visited */
+/* Step 5: Keep link color after being visited */
 a:visited {
     color: inherit;
 }
   
-/* Step 6: Style direct child headers of .card with background, border, padding, top border-radius */
-/* Second selector needed for proper border-radius rendering */
+/* Step 6: Style direct child headers of .card  */
 .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
     padding: 20px 0;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    overflow: hidden; /* Fixes border-radius clipping issue */
+    overflow: hidden;
 }
-
+/* Second selector for border */
 .card {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
+    /* Remove bottom */
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
-  
-/* Step 7: Set card class initial size using flex properties */
+
+/* Step 7: Set card class initial size using flex and have it stay that size */
 .card {
-    flex: 1 0 450px;
+    flex: 0 0 450px;
 }
   
-/* Step 8: Center pricing cards vertically/horizontally using flex */
+/* Step 8: Center pricing cards vertically and horizontally  */
 .pricing {
     display: flex;
     flex-wrap: wrap;
@@ -69,48 +76,47 @@ a:visited {
     align-items: center;
 }
   
-/* Step 9: Style gallery images with border, margins, and fixed width */
+/* Step 9: Style gallery images with the style from instructions */
 .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
 }
   
-/* Step 10: Make gallery use flex display for responsive layout */
+/* Step 10: Make gallery use flex like in the images */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* Media Query: >900px */
+/* Media Query for sizes >900px */
 
 @media screen and (min-width: 900px) {
-    /* Step 11: Adjust header and nav_links for desktop layout */
+    /* Step 11: Change header and nav_links with flex to look like images */
     header {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
     }
   
     .nav_links {
       flex-direction: row;
-      gap: 20px;
     }
   
-    /* Step 12: Adjust card sizes for desktop */
+    /* Step 12: Change card sizes to look like image */
     .pricing {
       flex-direction: row;
       justify-content: center;
     }
   
+    /* Specify size */
     .card {
       flex-basis: 275px;
     }
   
-    /* Step 13: Make header sticky */
-    body > header:first-of-type {
+    /* Step 13: Make header sticky and only the first decentant of body */
+    body > header {
       position: sticky;
       top: 0;
       background: white;
@@ -119,10 +125,10 @@ a:visited {
     }
 }
   
-/* Media Query: Prefers Reduced Motion */
+/* Media Query for reduced motion*/
 
 @media (prefers-reduced-motion: reduce) {
-    /* Step 14: Disable logo animation */
+    /* Step 14: No logo animation */
     #logo {
         animation: none;
         width: 475px;
@@ -132,15 +138,17 @@ a:visited {
 
 /* Print Media (Portrait) */
 @media print {
-    /* Step 15: Print style adjustments */
+    /* Step 15 and 16: Change text and background */
     body {
-        font-family: Arial, Helvetica, sans-serif;
-        background-image: none !important;
+        font-family: Arial, Helvetica;
+        background-image: none;
     }
 
-    /* Step 16: Adjust nav spacing */
+    /* Step 17: Adjust nav spacing */
     .nav_links {
-        justify-content: space-around;
+        flex-direction: row;
+        justify-content: space-around !important;
+        justify-items: space-around !important;
         width: 100%;
     }
 
